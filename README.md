@@ -21,22 +21,10 @@ ExpoPlanets is a modern, responsive web application that brings the wonders of s
 - **🎂 Birthday Search**: Discover what cosmic event happened on your birthday
 - **♒ Zodiac Integration**: Unique feature that connects your zodiac sign to cosmic moments
 - **🎯 Smart Search**: Intuitive interface with custom dropdowns
-
-### ⭐ **Personal Favorites System**
-
-- Save your favorite cosmic moments
-- **Modal Preview System**: Click any favorite for full-screen detailed view
-- Local storage persistence
-- Beautiful card-based layout with cosmic messaging for zodiac favorites
-- One-click removal with confirmation
-
-### 🎨 **Stunning Design**
-
-- **Glassmorphism UI**: Modern transparent design with backdrop blur effects
-- **Cosmic Theme**: Deep space gradients and stellar animations
 - **Fully Responsive**: Perfect experience on desktop, tablet, and mobile
 - **Smooth Animations**: CSS keyframe animations and transitions
-- **Accessibility**: Keyboard navigation and focus states
+- **Glassmorphism UI**: Modern transparent design with backdrop blur effects
+- **Cosmic Theme**: Deep space gradients and stellar animations
 
 ### 🔧 **Technical Excellence**
 
@@ -45,8 +33,6 @@ ExpoPlanets is a modern, responsive web application that brings the wonders of s
 - **Modern CSS**: Custom properties, flexbox, and grid
 - **Vite Build System**: Lightning-fast development and optimized production builds
 - **ESLint Integration**: Clean, maintainable code
-
-## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -96,7 +82,6 @@ ExpoPlanets is a modern, responsive web application that brings the wonders of s
 - **Storage**: LocalStorage for favorites persistence
 - **Code Quality**: ESLint with React hooks and refresh plugins
 
-
 ## 📊 Project Structure
 
 ```
@@ -117,3 +102,4 @@ src/
 ├── images/             # Static images (future)
 └── App.*               # Main application
 
+```

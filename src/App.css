@@ -1,42 +1,149 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@font-face {
+  font-family: "Orbitron";
+  src: url("./fonts/Orbitron/static/Orbitron-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./fonts/Orbitron/static/Orbitron-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./fonts/Orbitron/static/Orbitron-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap");
+
+:root {
+  --primary-bg: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(100, 200, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #b0c4de;
+  --accent-blue: #64c8ff;
+  --accent-purple: #a855f7;
+  --glow-color: rgba(100, 200, 255, 0.3);
+  --error-color: #ff6b6b;
+}
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Exo 2", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("src/images/stary.background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Header Styles */
+.app__header {
   text-align: center;
+  padding: 2rem 1rem;
+  /* Removed black background and border for cleaner look */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app__title {
+  font-family: "Orbitron", monospace;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue),
+    0 0 30px var(--accent-blue);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navigation Styles */
+.app__nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.app__nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.app__nav-link:hover {
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px var(--glow-color);
+  transform: translateY(-2px);
+}
+
+.app__nav-link--external {
+  border-color: var(--accent-purple);
+}
+
+.app__nav-link--external:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* Main Content */
+.app__main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center; /* Center content until you decide on final layout */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app__title {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .app__nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .app__header {
+    padding: 1rem;
+  }
+
+  .app__main {
+    padding: 1rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .app__title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

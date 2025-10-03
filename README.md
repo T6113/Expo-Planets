@@ -1,6 +1,6 @@
 # 🚀 ExpoPlanets - Explore the Cosmos
 
-## 🚀 Live Demo
+## Live Demo
 
 [ExpoPlanets on GitHub Pages](https://t6113.github.io/Expo-Planets/)
 

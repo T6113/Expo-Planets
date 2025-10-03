@@ -1,5 +1,9 @@
 # 🚀 ExpoPlanets - Explore the Cosmos
 
+## 🚀 Live Demo
+
+[ExpoPlanets on GitHub Pages](https://t6113.github.io/Expo-Planets/)
+
 **Your daily window into the universe through NASA's Astronomy Picture of the Day**
 
 ExpoPlanets is a modern, responsive web application that brings the wonders of space exploration directly to your browser. Built with React and powered by NASA's APOD API, it offers an immersive cosmic experience with stunning visuals and intuitive navigation.

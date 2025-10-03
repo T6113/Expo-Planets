@@ -45,7 +45,7 @@
 body {
   font-family: "Exo 2", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("src/images/stary.background.jpg") no-repeat center center fixed;
+    url("../images/stary.background.jpg") no-repeat center center fixed;
   background-size: cover;
   color: var(--text-primary);
   line-height: 1.6;

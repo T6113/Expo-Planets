@@ -1,0 +1,317 @@
+/* ZodiacSearch Component Styles */
+.zodiac-search {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(100, 200, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.zodiac-search__title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+  font-family: "Orbitron", monospace;
+  font-weight: 700;
+}
+
+.zodiac-search__subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #b0c4de;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Zodiac Grid */
+.zodiac-search__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Zodiac Cards */
+.zodiac-search__card {
+  position: relative;
+  background: var(--zodiac-gradient);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zodiac-search__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.zodiac-search__card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.zodiac-search__card:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.zodiac-search__card:hover::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.zodiac-search__card--selected {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #64c8ff;
+  box-shadow: 0 12px 30px rgba(100, 200, 255, 0.4);
+}
+
+.zodiac-search__card--selected::before {
+  background: rgba(100, 200, 255, 0.2);
+}
+
+/* Card Content */
+.zodiac-search__card-symbol {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.zodiac-search__card-emoji {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.zodiac-search__card-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.zodiac-search__card-element {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Selected Info */
+.zodiac-search__selected-info {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(168, 85, 247, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  margin-top: 1.5rem;
+}
+
+.zodiac-search__cosmic-message {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 0;
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+  transition: all 0.6s ease;
+}
+
+.zodiac-search__cosmic-message--channeling {
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+  animation: channelingPulse 1.5s ease-in-out infinite;
+}
+
+.zodiac-search__cosmic-message--channeled {
+  color: #90ee90;
+  text-shadow: 0 0 15px rgba(144, 238, 144, 0.6);
+  animation: channeledGlow 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes cosmicPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+}
+
+@keyframes channelingPulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes channeledGlow {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zodiac-search__selected-info {
+  animation: cosmicPulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .zodiac-search {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .zodiac-search__grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .zodiac-search__card {
+    min-height: 140px;
+    padding: 1rem 0.8rem;
+  }
+
+  .zodiac-search__card-symbol {
+    font-size: 2rem;
+  }
+
+  .zodiac-search__card-emoji {
+    font-size: 1.5rem;
+  }
+
+  .zodiac-search__title {
+    font-size: 1.8rem;
+  }
+
+  .zodiac-search__subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .zodiac-search__grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for better balance */
+    gap: 1rem;
+  }
+
+  .zodiac-search__card {
+    min-height: 120px;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .zodiac-search__card-name {
+    font-size: 0.9rem;
+  }
+
+  .zodiac-search__card-element {
+    font-size: 0.7rem;
+  }
+
+  .zodiac-search__card-symbol {
+    font-size: 1.8rem;
+  }
+
+  .zodiac-search__card-emoji {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .zodiac-search {
+    padding: 1.5rem 1rem;
+  }
+
+  .zodiac-search__grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on very small screens */
+    gap: 0.8rem;
+  }
+
+  .zodiac-search__card {
+    min-height: 110px;
+    padding: 0.7rem 0.4rem;
+  }
+
+  .zodiac-search__card-name {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+
+  .zodiac-search__card-element {
+    font-size: 0.65rem;
+  }
+
+  .zodiac-search__card-symbol {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .zodiac-search__card-emoji {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .zodiac-search__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for very small phones */
+    gap: 1rem;
+  }
+
+  .zodiac-search__card {
+    min-height: 130px;
+    padding: 1rem 0.6rem;
+  }
+
+  .zodiac-search__card-name {
+    font-size: 0.9rem;
+  }
+
+  .zodiac-search__card-element {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,73 @@
+/* About Component Styles */
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about__title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
+  font-family: "Orbitron", monospace;
+}
+
+.about__content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.about__description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.about__features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.about__feature {
+  background: rgba(100, 200, 255, 0.1);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  color: #b0c4de;
+}
+
+.about__link {
+  color: #64c8ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.about__link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem;
+  }
+
+  .about__title {
+    font-size: 2rem;
+  }
+
+  .about__content {
+    padding: 1.5rem;
+  }
+}

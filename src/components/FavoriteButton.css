@@ -1,0 +1,189 @@
+/* Favorite Button Styles */
+.favorite-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 0.8rem 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.favorite-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.favorite-button:hover::before {
+  left: 100%;
+}
+
+.favorite-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.favorite-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Favorited State */
+.favorite-button--favorited {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.8);
+  color: #ffd700;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.favorite-button--favorited:hover {
+  background: rgba(255, 68, 68, 0.2);
+  border-color: rgba(255, 68, 68, 0.6);
+  color: #ff4444;
+  box-shadow: 0 8px 20px rgba(255, 68, 68, 0.3);
+}
+
+.favorite-button--favorited:hover .favorite-button__text {
+  color: #ff4444;
+}
+
+.favorite-button--favorited:hover .favorite-button__icon {
+  color: #ff4444;
+}
+
+/* Loading State */
+.favorite-button--loading {
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.favorite-button--loading .favorite-button__icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Icon */
+.favorite-button__icon {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.2rem;
+}
+
+.favorite-button--favorited .favorite-button__icon {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Text */
+.favorite-button__text {
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: "Orbitron", monospace;
+}
+
+.favorite-button--favorited .favorite-button__text {
+  color: #ffd700;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Size Variants */
+.favorite-button--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.favorite-button--large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.favorite-button--icon-only {
+  padding: 0.8rem;
+  min-width: auto;
+}
+
+.favorite-button--icon-only .favorite-button__text {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .favorite-button {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.95rem;
+  }
+
+  .favorite-button__text {
+    display: none;
+  }
+
+  .favorite-button {
+    padding: 0.8rem;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .favorite-button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .favorite-button__icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Integration with other components */
+.explore-page__actions .favorite-button {
+  margin-right: 1rem;
+}
+
+.daily-space-photo__actions .favorite-button {
+  margin-bottom: 1rem;
+}

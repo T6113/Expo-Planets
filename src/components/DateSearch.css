@@ -1,0 +1,343 @@
+/* DateSearch Component Styles */
+.date-search {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* Boost z-index when any dropdown is open */
+.date-search--dropdown-open {
+  z-index: 50;
+}
+
+.date-search--dropdown-open .date-search__custom-select {
+  z-index: 100;
+}
+
+.date-search--dropdown-open .date-search__select-dropdown {
+  z-index: 9999;
+}
+
+.date-search__title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+  font-family: "Orbitron", monospace;
+}
+
+/* Tab Navigation */
+.date-search__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.date-search__tab {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 25px;
+  padding: 0.8rem 1.5rem;
+  color: #b0c4de;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.date-search__tab:hover {
+  background: rgba(100, 200, 255, 0.1);
+  border-color: rgba(100, 200, 255, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(100, 200, 255, 0.2);
+}
+
+.date-search__tab--active {
+  background: rgba(100, 200, 255, 0.2);
+  border-color: #64c8ff;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(100, 200, 255, 0.3);
+}
+
+/* Form Styles */
+.date-search__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.date-search__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.date-search__label {
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.date-search__input,
+.date-search__select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.date-search__input:focus,
+.date-search__select:focus {
+  outline: none;
+  border-color: #64c8ff;
+  box-shadow: 0 0 15px rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.date-search__input::placeholder {
+  color: #888;
+}
+
+/* Enhanced Date Input Styling */
+.date-search__input[type="date"] {
+  position: relative;
+  color-scheme: dark;
+}
+
+.date-search__input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364c8ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3e%3c/rect%3e%3cline x1='16' y1='2' x2='16' y2='6'%3e%3c/line%3e%3cline x1='8' y1='2' x2='8' y2='6'%3e%3c/line%3e%3cline x1='3' y1='10' x2='21' y2='10'%3e%3c/line%3e%3c/svg%3e")
+    no-repeat;
+  background-size: 18px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.date-search__input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Custom Select Styles */
+.date-search__custom-select {
+  position: relative;
+  z-index: 10;
+}
+
+.date-search__select-button {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-search__select-button:hover {
+  border-color: rgba(100, 200, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.date-search__select-button:focus {
+  outline: none;
+  border-color: #64c8ff;
+  box-shadow: 0 0 15px rgba(100, 200, 255, 0.3);
+}
+
+.date-search__select-arrow {
+  transition: transform 0.3s ease;
+  color: #64c8ff;
+  font-size: 0.8rem;
+}
+
+.date-search__select-arrow--open {
+  transform: rotate(180deg);
+}
+
+.date-search__select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 40, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 10px;
+  margin-top: 0.25rem;
+  z-index: 9999;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  /* Hide scrollbar for cleaner look */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  padding: 0.5rem 0;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.date-search__select-dropdown::-webkit-scrollbar {
+  display: none;
+}
+
+.date-search__select-dropdown--scrollable {
+  max-height: 300px;
+}
+
+.date-search__select-option {
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.95rem;
+  display: block;
+  line-height: 1.4;
+  min-height: auto;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.date-search__select-option:hover {
+  background: rgba(100, 200, 255, 0.2);
+  color: #ffffff;
+}
+
+.date-search__select-option:first-child {
+  margin-top: 0;
+}
+
+.date-search__select-option:last-child {
+  margin-bottom: 0;
+}
+
+/* Custom Scrollbar styles removed - using hidden scrollbar for cleaner look */
+
+/* Birthday Fields */
+.date-search__birthday-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Date Fields (same styling as birthday fields) */
+.date-search__date-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Instruction Text */
+.date-search__instruction {
+  text-align: center;
+  color: #b0c4de;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(100, 200, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+/* Search Button */
+.date-search__button {
+  background: linear-gradient(135deg, #64c8ff, #a855f7);
+  border: none;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(100, 200, 255, 0.3);
+}
+
+.date-search__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(100, 200, 255, 0.4);
+  background: linear-gradient(135deg, #5bb8ef, #9333ea);
+}
+
+.date-search__button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .date-search {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .date-search__tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .date-search__tab {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .date-search__birthday-fields,
+  .date-search__date-fields {
+    grid-template-columns: 2fr 2fr 3fr; /* Month Day Year with proper proportions */
+    gap: 0.8rem;
+  }
+
+  .date-search__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-search {
+    padding: 1rem;
+  }
+
+  .date-search__birthday-fields,
+  .date-search__date-fields {
+    grid-template-columns: 1.5fr 1.5fr 2fr; /* Compact but readable on small screens */
+    gap: 0.6rem;
+  }
+
+  .date-search__select-button,
+  .date-search__input {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .date-search__button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

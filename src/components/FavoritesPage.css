@@ -1,0 +1,439 @@
+/* Favorites Page Styles */
+.favorites-page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.favorites-page__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.favorites-page__title {
+  font-size: 3rem;
+  font-family: "Orbitron", monospace;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.favorites-page__subtitle {
+  font-size: 1.2rem;
+  color: #b0c4de;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Loading State */
+.favorites-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.favorites-page__loading-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.favorites-page__loading p {
+  font-size: 1.3rem;
+  color: #b0c4de;
+  font-style: italic;
+}
+
+/* Empty State */
+.favorites-page__empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(100, 200, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.favorites-page__empty-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.favorites-page__empty-title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: "Orbitron", monospace;
+}
+
+.favorites-page__empty-text {
+  font-size: 1.1rem;
+  color: #b0c4de;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.favorites-page__explore-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.favorites-page__explore-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Favorites Grid */
+.favorites-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Favorite Cards */
+.favorites-page__card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(100, 200, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites-page__card--clickable {
+  cursor: pointer;
+}
+
+.favorites-page__card--clickable:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(100, 200, 255, 0.3);
+  border-color: rgba(100, 200, 255, 0.4);
+}
+
+.favorites-page__card--clickable::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(100, 200, 255, 0.02),
+    rgba(168, 85, 247, 0.02)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.favorites-page__card--clickable:hover::before {
+  opacity: 1;
+}
+
+/* Remove the generic hover since we now have clickable specific hover */
+
+/* Remove Button - Top Right Corner */
+.favorites-page__remove-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  z-index: 10;
+  text-align: center;
+}
+
+.favorites-page__remove-btn:hover {
+  background: rgba(255, 68, 68, 0.4);
+  border-color: rgba(255, 68, 68, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+/* Zodiac Badge - Centered above title */
+.favorites-page__zodiac-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin: 0 auto 1rem auto;
+  max-width: fit-content;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+}
+
+.favorites-page__zodiac-badge:hover {
+  background: rgba(168, 85, 247, 0.3);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+  transform: translateY(-2px);
+}
+
+.favorites-page__zodiac-symbol {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Card Header */
+.favorites-page__card-header {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 3.5rem; /* Balance the remove button on the right */
+  padding-right: 3.5rem; /* Space for remove button */
+}
+
+.favorites-page__card-title {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  width: 100%;
+  font-family: "Orbitron", monospace;
+}
+
+/* Card Content */
+.favorites-page__card-date {
+  display: block;
+  color: #64c8ff;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Orbitron", monospace;
+}
+
+.favorites-page__card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.favorites-page__card-image:hover {
+  transform: scale(1.02);
+}
+
+.favorites-page__video-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  color: #ffffff;
+  text-align: center;
+}
+
+.favorites-page__video-placeholder p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.favorites-page__video-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.favorites-page__card-explanation {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.favorites-page__cosmic-message {
+  color: #ffd700;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0 auto 1rem auto;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
+}
+
+.favorites-page__card-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.favorites-page__favorite-date {
+  font-size: 0.85rem;
+  color: #b0c4de;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Footer */
+.favorites-page__footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.favorites-page__footer-text {
+  color: #b0c4de;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .favorites-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .favorites-page__title {
+    font-size: 2.2rem;
+  }
+
+  .favorites-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .favorites-page__card {
+    padding: 1rem;
+  }
+
+  .favorites-page__card-header {
+    padding-right: 1rem;
+  }
+
+  .favorites-page__card-title {
+    font-size: 1.1rem;
+  }
+
+  .favorites-page__empty {
+    padding: 2rem 1rem;
+  }
+
+  .favorites-page__empty-icon {
+    font-size: 3.5rem;
+  }
+
+  .favorites-page__empty-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .favorites-page__title {
+    font-size: 1.8rem;
+  }
+
+  .favorites-page__subtitle {
+    font-size: 1rem;
+  }
+
+  .favorites-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .favorites-page__remove-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .favorites-page__zodiac-badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .favorites-page__card-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 0.3rem;
+  }
+
+  .favorites-page__card-title {
+    font-size: 1.1rem;
+  }
+}

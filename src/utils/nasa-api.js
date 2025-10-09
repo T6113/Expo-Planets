@@ -21,8 +21,9 @@ export const isValidAPODDate = (dateString) => {
 // Get today's APOD
 export const getTodaysAPOD = async () => {
   try {
+    const apiKey = import.meta.env.VITE_API_KEY || 'DEMO_KEY';
     const response = await fetch(
-      `${API_BASE_URL}?api_key=${import.meta.env.VITE_API_KEY}`
+      `${API_BASE_URL}?api_key=${apiKey}`
     );
 
     if (!response.ok) {
@@ -45,8 +46,9 @@ export const getAPODByDate = async (date) => {
       throw new Error(`Date must be between ${APOD_START_DATE} and today`);
     }
 
+    const apiKey = import.meta.env.VITE_API_KEY || 'DEMO_KEY';
     const response = await fetch(
-      `${API_BASE_URL}?api_key=${import.meta.env.VITE_API_KEY}&date=${date}`
+      `${API_BASE_URL}?api_key=${apiKey}&date=${date}`
     );
 
     if (!response.ok) {
